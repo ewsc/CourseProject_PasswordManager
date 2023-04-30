@@ -13,7 +13,10 @@
     @yield('head')
 </head>
 <body>
+<div class="uk-background-secondary uk-light uk-position-fixed uk-background-cover uk-height-1-1 uk-width-1-1">
     @yield('content')
+
+</div>
 
 </body>
 </html>

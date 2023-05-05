@@ -13,9 +13,8 @@
     @yield('head')
 </head>
 <body>
-<div class="uk-background-secondary uk-light uk-position-fixed uk-background-cover uk-height-1-1 uk-width-1-1">
 
-    <nav class="uk-navbar-container uk-dark uk-navbar-transparent">
+    <nav class="uk-navbar-container">
         <div class="uk-container">
             <div uk-navbar>
                 <div class="uk-navbar-center">
@@ -25,14 +24,22 @@
                             <a href="#">Passwords</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class="uk-active"><a href="#">Add</a></li>
+                                    <li class=""><a href="#">Add</a></li>
                                     <li><a href="#">View</a></li>
                                     <li><a href="#">Edit</a></li>
                                 </ul>
                             </div>
                         </li>
                         @auth
-                        <li><a href="#">{{ Auth::user()->name }}</a></li>
+                        <li>
+                            <a href="#">{{ Auth::user()->name }}</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class=""><a href="#">Profile</a></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         @endauth
                         @guest
                         <li><a href="/login">Login</a></li>
@@ -45,7 +52,6 @@
 
     @yield('content')
 
-</div>
 
 </body>
 </html>

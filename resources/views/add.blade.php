@@ -27,7 +27,7 @@
                 </label>
                 <p class="uk-text-muted uk-margin-small-top uk-margin-left"><span class="uk-text-warning">*Attention!</span> The hint should not be too obvious, it should only remind you of the password.</p>
 
-                <div class="uk-text-right uk-margin-medium-top">
+                <div class="uk-text-right uk-margin-medium-top uk-margin-medium-bottom">
                     <button type="submit" class="uk-button uk-button-primary">Add</button>
                 </div>
             </div>

@@ -5,3 +5,23 @@
     color: #000;
     max-width: 666px;
 }
+
+.uk-navbar-container:hover {
+    transition: background 500ms;
+    transition-timing-function: linear;
+    background: #222;
+}
+
+.custom-nav-button {
+    padding: 10px;
+    background: #222;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background 500ms;
+    transition-timing-function: linear;
+}
+
+.custom-nav-button:hover {
+    text-decoration: none;
+    background: #484848;
+}

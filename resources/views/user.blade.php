@@ -15,13 +15,54 @@
                 <h4 class="uk-margin-small-top uk-margin-remove-bottom"><span uk-icon="commenting" class="uk-margin-small-right"></span>Password keyword: <i>{{ $password->pass_key }}</i></h4>
                 <h4 class="uk-margin-small-top"><span uk-icon="lock" class="uk-margin-small-right"></span>Password: <i class="custom-hide-text" id="PID{{ $password->id }}"><span></span></i> (hover)</h4>
 
+                <div class="">
+                    <button class="uk-button uk-button-default" type="button" uk-toggle="target: #edit-modal-{{ $password->id }}">
+                        Edit
+                    </button>
+
+                    <button class="uk-button uk-button-danger" uk-toggle="target: #delete-modal-{{ $password->id }}">
+                        Delete
+                    </button>
+
+                    <button class="uk-button uk-button-default" onclick="copyPass()">
+                        Copy password
+                    </button>
+                </div>
+
+                <script>
+                    function copyPass() {
+                        let copyText = document.getElementById("PID{{ $password->id }}");
+                        navigator.clipboard.writeText(copyText.textContent);
+                        UIkit.notification({message: 'Text copied' + copyText.textContent, pos: 'bottom-right'});
+                    }
+                </script>
+
                 <style>
                     #PID{{ $password->id }}:hover:after {
+                        transition: 300ms linear;
                         content: '{{ $password->pass_pass }}';
                     }
                 </style>
+
+                <div id="delete-modal-{{ $password->id }}" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Are you sure that you want to delete password <i>"{{ $password->pass_name }}"</i></h2>
+                        <p>This action can't be undone.</p>
+                        <p class="uk-text-right">
+                        <form action="/user" enctype="multipart/form-data" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $password->id }}">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-danger" type="submit">Delete</button>
+                        </form>
+                        </p>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>
+
+
+
 
 @endsection

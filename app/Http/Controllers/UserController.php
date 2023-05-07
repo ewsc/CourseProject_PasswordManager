@@ -19,15 +19,14 @@ class UserController extends Controller
 
     public function user() {
         $user_passwords = Passwords::query()
-         ->where('author_id', auth()->user()->id)
-         ->orderBy('updated_at', 'desc')
-         ->get();
+             ->where('author_id', auth()->user()->id)
+             ->orderBy('updated_at', 'desc')
+             ->get();
 
         foreach ($user_passwords as $user_password) {
             $user_password->pass_pass = Crypt::decryptString($user_password->pass_pass);
             $user_password->pass_pass = $this->get_string_between($user_password->pass_pass, '"', '"');
         }
-
 
         return view('/user', [
             'user_passwords' => $user_passwords,
@@ -46,5 +45,23 @@ class UserController extends Controller
             ]);
 
         return redirect('/user')->withErrors(['Password added.', 'The Message']);
+    }
+
+    public function delete(Request $request) {
+        $id = $request->post("id");
+
+        $i_found_this = Passwords::query()
+            ->where('id', $id)
+            ->first();
+
+        if ($i_found_this->author_id === auth()->user()->id) {
+            Passwords::query()
+                 ->where('id', $id)
+                 ->delete();
+            return redirect('/user')->withErrors(['Password deleted.', 'The Message']);
+        }
+        else {
+            return redirect('/user')->withErrors(['Oops. We encountered an error while validating your password. Try again.', 'The Message']);
+        }
     }
 }

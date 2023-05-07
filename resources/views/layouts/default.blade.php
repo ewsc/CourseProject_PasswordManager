@@ -35,8 +35,8 @@
                             <a href="#">{{ Auth::user()->name }}</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class=""><a href="#">Profile</a></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li class=""><a href="/profile">Profile</a></li>
+                                    <li><a href="/logout">Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -53,5 +53,8 @@
     @yield('content')
 
 
+    <footer class="uk-background-secondary uk-padding uk-text-center">
+        gthanksg, {{ now()->year }}
+    </footer>
 </body>
 </html>

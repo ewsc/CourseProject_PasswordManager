@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <nav class="uk-navbar-container">
+    <nav class="uk-navbar-container  uk-navbar-transparent">
         <div class="uk-container">
             <div uk-navbar>
                 <div class="uk-navbar-center">

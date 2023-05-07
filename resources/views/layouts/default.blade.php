@@ -53,7 +53,7 @@
     @yield('content')
 
 
-    <footer class="uk-background-secondary uk-padding uk-text-center">
+    <footer class="uk-background-secondary uk-padding uk-text-center uk-margin-top">
         gthanksg, {{ now()->year }}
     </footer>
 </body>

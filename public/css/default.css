@@ -9,7 +9,7 @@
 .uk-navbar-container:hover {
     transition: background 500ms;
     transition-timing-function: linear;
-    background: #222;
+    background: rgba(34, 34, 34, 0.7);
 }
 
 .custom-nav-button {
@@ -24,4 +24,8 @@
 .custom-nav-button:hover {
     text-decoration: none;
     background: #484848;
+}
+
+.custom-hide-text:after {
+    content: '*******';
 }

@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::view('/add', 'add');
 
-    Route::view('/user', 'user');
+    Route::get('/user', [UserController::class, 'user']);
 
     Route::post('/add', [UserController::class, 'add']);
 });

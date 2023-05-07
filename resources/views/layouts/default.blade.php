@@ -14,6 +14,12 @@
 </head>
 <body>
 
+    @if ($errors->any())
+        <script>
+            UIkit.notification({message: '{{ $errors->first() }}', pos: 'bottom-right'});
+        </script>
+    @endif
+
     <nav class="uk-navbar-container  uk-navbar-transparent">
         <div class="uk-container">
             <div uk-navbar>
@@ -24,7 +30,7 @@
                             <a href="#">Passwords</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li class=""><a href="#">Add</a></li>
+                                    <li class=""><a href="/add">Add</a></li>
                                     <li><a href="#">View</a></li>
                                     <li><a href="#">Edit</a></li>
                                 </ul>

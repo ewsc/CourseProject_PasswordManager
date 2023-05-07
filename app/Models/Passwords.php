@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Passwords extends Model
 {
-    use HasFactory;
+    protected $table = 'passwords';
+
+    protected $fillable = [
+        'pass_name',
+        'pass_pass',
+        'pass_key',
+
+        'author_id',
+    ];
 }

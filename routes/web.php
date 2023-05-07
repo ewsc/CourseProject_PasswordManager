@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user', [UserController::class, 'user']);
 
     Route::post('/add', [UserController::class, 'add']);
-    Route::post('/user', [UserController::class, 'delete']);
+    Route::post('/user', [UserController::class, 'password_handler']);
 });
 
 require __DIR__.'/auth.php';

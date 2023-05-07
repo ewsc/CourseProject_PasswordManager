@@ -47,21 +47,43 @@ class UserController extends Controller
         return redirect('/user')->withErrors(['Password added.', 'The Message']);
     }
 
-    public function delete(Request $request) {
-        $id = $request->post("id");
+    public function password_handler(Request $request) {
+        if ($request->post('formtype') == '1') {
+            $id = $request->post("id");
 
-        $i_found_this = Passwords::query()
-            ->where('id', $id)
-            ->first();
+            $i_found_this = Passwords::query()
+                ->where('id', $id)
+                ->first();
 
-        if ($i_found_this->author_id === auth()->user()->id) {
-            Passwords::query()
-                 ->where('id', $id)
-                 ->delete();
-            return redirect('/user')->withErrors(['Password deleted.', 'The Message']);
+            if ($i_found_this->author_id === auth()->user()->id) {
+                Passwords::query()
+                    ->where('id', $id)
+                    ->delete();
+                return redirect('/user')->withErrors(['Password deleted.', 'The Message']);
+            } else {
+                return redirect('/user')->withErrors(['Oops. We encountered an error while validating your password. Try again.', 'The Message']);
+            }
         }
-        else {
-            return redirect('/user')->withErrors(['Oops. We encountered an error while validating your password. Try again.', 'The Message']);
+
+        elseif ($request->post('formtype') == '0') {
+            $id = $request->post("id");
+
+            $i_found_this = Passwords::query()
+                ->where('id', $id)
+                ->first();
+
+            if ($i_found_this->author_id === auth()->user()->id) {
+                Passwords::query()
+                    ->where('id', $id)
+                    ->update([
+                        'pass_name' => $request->post('name'),
+                        'pass_key' => $request->post('keyword'),
+                        'pass_pass' => Crypt::encrypt($request->post('password')),
+                    ]);
+                return redirect('/user')->withErrors(['Password "' . $request->post('name') . '" updated.', 'The Message']);
+            } else {
+                return redirect('/user')->withErrors(['Oops. We encountered an error while validating your password. Try again.', 'The Message']);
+            }
         }
     }
 }

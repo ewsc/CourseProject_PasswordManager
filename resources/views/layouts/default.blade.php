@@ -59,7 +59,10 @@
     </div>
     @endif
 
-    @yield('content')
+
+    <div class="page-container">
+        @yield('content')
+    </div>
 
 
     <footer class="uk-background-secondary uk-padding uk-text-center uk-margin-top">

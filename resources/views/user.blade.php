@@ -90,15 +90,16 @@
                         <h2 class="uk-modal-title">Are you sure that you want to delete password <i>"{{ $password->pass_name }}"</i></h2>
                         <p>This action can't be undone.</p>
                         <p class="uk-text-right">
-                        <form action="/user" enctype="multipart/form-data" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $password->id }}">
-                            <input type="hidden" name="formtype" value="1">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                            <button class="uk-button uk-button-danger" type="submit">Delete</button>
-                        </form>
+                            <form action="/user" enctype="multipart/form-data" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $password->id }}">
+                                <input type="hidden" name="formtype" value="1">
+                                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                <button class="uk-button uk-button-danger" type="submit">Delete</button>
+                            </form>
                         </p>
                     </div>
+
                 </div>
             </div>
         @empty

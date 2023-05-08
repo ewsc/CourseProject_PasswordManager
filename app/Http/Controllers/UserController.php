@@ -55,7 +55,7 @@ class UserController extends Controller
                 ->where('id', $id)
                 ->first();
 
-            if ($i_found_this->author_id === auth()->user()->id) {
+            if ($i_found_this->author_id == auth()->user()->id) {
                 Passwords::query()
                     ->where('id', $id)
                     ->delete();
@@ -72,7 +72,7 @@ class UserController extends Controller
                 ->where('id', $id)
                 ->first();
 
-            if ($i_found_this->author_id === auth()->user()->id) {
+            if ($i_found_this->author_id == auth()->user()->id) {
                 Passwords::query()
                     ->where('id', $id)
                     ->update([

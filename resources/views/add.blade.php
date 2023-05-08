@@ -17,7 +17,7 @@
                 <h3 class="uk-margin-small-bottom">Password itself</h3>
                 <div id="StrengthDisp"></div>
                 <label>
-                    <input type="text" class="uk-input uk-width-1-1" placeholder="Input password itself" name="password" id="PassEntry" maxlength="20" required>
+                    <input type="password" class="uk-input uk-width-1-1" placeholder="Input password itself" name="password" id="PassEntry" maxlength="20" required>
                 </label>
                 <p class="uk-text-muted uk-margin-small-top uk-margin-left">*The recommended password length is 6 characters minimum. Also, the password must contain mixed case letters, numbers and special characters.</p>
 

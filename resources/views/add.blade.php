@@ -17,8 +17,13 @@
                 <h3 class="uk-margin-small-bottom">Password itself</h3>
                 <div id="StrengthDisp"></div>
                 <label>
-                    <input type="password" class="uk-input uk-width-1-1" placeholder="Input password itself" name="password" id="PassEntry" maxlength="20" required>
+                    <input type="password" class="uk-input uk-width-1-1" placeholder="Input password itself" id="passwordInput" name="password" id="PassEntry" maxlength="20" required @if ($errors->any())value="{{ $errors->first() }}"@endif>
                 </label>
+                <div class="uk-margin-small-top">
+                    <label>
+                        <input type="checkbox" onclick="revealPassword()" class="uk-checkbox"> Reveal password
+                    </label>
+                </div>
                 <p class="uk-text-muted uk-margin-small-top uk-margin-left">*The recommended password length is 6 characters minimum. Also, the password must contain mixed case letters, numbers and special characters.</p>
 
                 <h3 class="uk-margin-small-bottom">Password keyword</h3>
@@ -64,6 +69,15 @@
                 strengthBadge.style.display = 'none'
             }
         });
+
+        function revealPassword() {
+            var x = document.getElementById("passwordInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
     </script>
 
 @endsection

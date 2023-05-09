@@ -9,11 +9,13 @@
 
         <hr class="uk-divider-icon">
 
-        <label for='p'></label><input type='text' class="uk-input uk-width-1-1" id='p' name="generatedPassword"/>
-        <input type='button' id="sayDEgenerate" value ='generate' onclick='document.getElementById("p").value = Password.generate(16); document.getElementById("sayDEgenerate").value = "Regenerate";' class="uk-margin-top uk-button uk-button-default">
-        <button type="submit" class="uk-button uk-button-primary uk-margin-top">
-            Add
-        </button>
+        <form action="/generate" method="post" enctype="multipart/form-data">@csrf
+            <label for='p'></label><input type='text' class="uk-input uk-width-1-1" id='p' name="generatedPassword" required readonly>
+            <input type='button' id="sayDEgenerate" value ='generate' onclick='document.getElementById("p").value = Password.generate(16); document.getElementById("sayDEgenerate").value = "Regenerate";' class="uk-margin-top uk-button uk-button-default">
+            <button type="submit" class="uk-button uk-button-primary uk-margin-top">
+                Save
+            </button>
+        </form>
     </div>
 
     <script>

@@ -82,4 +82,9 @@ class UserController extends Controller
             }
         }
     }
+
+    public function redirectToAdd(Request $request) {
+        $password = $request->post('generatedPassword');
+        return redirect('/add')->withErrors([$password, 'The Message']);
+    }
 }

@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::view('/add', 'add');
     Route::view('/generate', 'generate');
+    Route::post('/generate', [UserController::class, 'redirectToAdd']);
 
     Route::get('/user', [UserController::class, 'user']);
 

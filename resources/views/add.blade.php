@@ -17,7 +17,7 @@
                 <h3 class="uk-margin-small-bottom">Password itself</h3>
                 <div id="StrengthDisp"></div>
                 <label>
-                    <input type="password" class="uk-input uk-width-1-1" placeholder="Input password itself" id="passwordInput" name="password" id="PassEntry" maxlength="20" required @if ($errors->any())value="{{ $errors->first() }}"@endif>
+                    <input type="password" class="uk-input uk-width-1-1" placeholder="Input password itself" name="password" id="PassEntry" maxlength="20" required @if ($errors->any())value="{{ $errors->first() }}"@endif>
                 </label>
                 <div class="uk-margin-small-top">
                     <label>
@@ -71,7 +71,7 @@
         });
 
         function revealPassword() {
-            var x = document.getElementById("passwordInput");
+            var x = document.getElementById("PassEntry");
             if (x.type === "password") {
                 x.type = "text";
             } else {

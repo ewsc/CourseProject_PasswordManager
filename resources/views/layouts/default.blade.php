@@ -66,7 +66,7 @@
 
 
     <footer class="uk-background-secondary uk-padding uk-text-center uk-margin-top">
-        gthanksg, {{ now()->year }}
+        <a href="https://alamov.xyz" class="uk-link-heading">gthanksg</a>, {{ now()->year }}
     </footer>
 </body>
 </html>

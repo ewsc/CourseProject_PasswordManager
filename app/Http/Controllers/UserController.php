@@ -48,12 +48,13 @@ class UserController extends Controller
     }
 
     public function password_handler(Request $request) {
-        if ($request->post('formtype') == '1') {
-            $id = $request->post("id");
+        $id = $request->post("id");
 
-            $i_found_this = Passwords::query()
-                ->where('id', $id)
-                ->first();
+        $i_found_this = Passwords::query()
+            ->where('id', $id)
+            ->first();
+
+        if ($request->post('formtype') == '1') {
 
             if ($i_found_this->author_id == auth()->user()->id) {
                 Passwords::query()
@@ -66,11 +67,6 @@ class UserController extends Controller
         }
 
         elseif ($request->post('formtype') == '0') {
-            $id = $request->post("id");
-
-            $i_found_this = Passwords::query()
-                ->where('id', $id)
-                ->first();
 
             if ($i_found_this->author_id == auth()->user()->id) {
                 Passwords::query()

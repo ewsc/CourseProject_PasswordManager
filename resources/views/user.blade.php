@@ -15,6 +15,9 @@
         <a href="/generate" class="uk-button uk-button-default">
             Generate new
         </a>
+        <a href="/logout" class="uk-button uk-button-default">
+            Logout
+        </a>
         <a href="#" class="uk-button uk-button-default" onclick="UIkit.notification({message: 'Yeah, keep waiting!', pos: 'bottom-right'});">
             Wait for something new...
         </a>

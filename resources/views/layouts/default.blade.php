@@ -27,7 +27,7 @@
         <div class="uk-position-center-left uk-margin-large-bottom uk-overlay uk-margin-left">
             <div class="custom-box">
                 <h2 class="uk-text-bold">Keep your passwords in one place.</h2>
-                <h4 class="uk-margin-remove-top">Our handy password manager allows you to keep your passwords secure. Access your data anywhere, anytime.</h4>
+                <h4 class="uk-margin-remove-top">Our encrypted, online password manager safely stores all your online passwords and personal information in one place. You can access it anytime, anywhere. We use strong encryption to ensure that your information stays safe from hackers. Get it now and start enjoying a stress-free online experience!</h4>
                 <a class="uk-button uk-button-secondary uk-width-1-1" href="/add">Get started!</a>
             </div>
         </div>
@@ -65,8 +65,23 @@
     </div>
 
 
-    <footer class="uk-background-secondary uk-padding uk-text-center uk-margin-top">
-        <a href="https://alamov.xyz" class="uk-link-heading">gthanksg</a>, {{ now()->year }}
+    <footer class="uk-background-secondary uk-padding uk-margin-top">
+        <div class="uk-container uk-light">
+            <div class="uk-flex uk-flex-around">
+                <div class="uk-text-left">
+                    <a href="https://instagram.com/mentaldora" class="uk-icon-button" uk-icon="instagram"></a>
+                    <a href="https://twitter.com/mentaldura" class="uk-icon-button uk-margin-small-left" uk-icon="twitter"></a>
+                    <a href="https://github.com/gthanksg/CourseProject_PasswordManager" class="uk-icon-button uk-margin-small-left" uk-icon="github"></a>
+                </div>
+                <div>
+                    <a href="/"><img src="{{ URL::asset('res/mainlogo.png') }}" alt="" class="uk-margin-left" style="width: 150px"></a>
+                </div>
+            </div>
+            <div class="uk-margin-top uk-text-center">
+                © 1969-{{ now()->year }} Alamov Azam. All rights reserved. <br>
+                by <a href="https://alamov.xyz" class="uk-link-heading">azam alamov</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

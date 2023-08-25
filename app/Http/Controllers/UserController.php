@@ -19,9 +19,9 @@ class UserController extends Controller
 
     public function user() {
         $user_passwords = Passwords::query()
-             ->where('author_id', auth()->user()->id)
-             ->orderBy('updated_at', 'desc')
-             ->get();
+            ->where('author_id', auth()->user()->id)
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         foreach ($user_passwords as $user_password) {
             $user_password->pass_pass = Crypt::decryptString($user_password->pass_pass);
